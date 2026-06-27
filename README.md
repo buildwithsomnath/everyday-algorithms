@@ -14,7 +14,7 @@ This repository is a daily diary of problem-solving. Every day, I take a real-li
 
 | Day | Problem Name | Description | Tech Stack | Solution |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [The Bus Seating Problem](./bus-seating-problem) | Validating if children and adults can seat safely on a bus based on strict pairing rules. | C++ | [View Code](./bus-seating-problem/solution.cpp) |
+| 1 | [The Bus Seating Problem](./problems/bus-seating-problem) | Validating if children and adults can seat safely on a bus based on strict pairing rules. | C++ | [View Code](./problems/bus-seating-problem/solution.cpp) |
 | 2 | *Coming Soon...* | | | |
 | 3 | *Coming Soon...* | | | |
 
