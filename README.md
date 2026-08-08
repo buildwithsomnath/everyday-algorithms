@@ -17,9 +17,10 @@ This repository is a daily diary of problem-solving. Every day, I take a real-li
 | 1 | [The Bus Seating Problem](./problems/bus-seating-problem) | Validating if children and adults can seat safely on a bus based on strict pairing rules. | C++ | [View Code](./problems/bus-seating-problem/solution.cpp) |
 | 2 | [The Checkout Queue Problem](./problems/checkout-queue-problem-I) | Calculating the expected wait times for mall crowds based on strict capacity and probabilistic buying rules. | C++ | [View Code](./problems/checkout-queue-problem-I/solution.cpp) |
 | 3 | [The Couple Dancing Problem](./problems/couple-dancing-competition) | Finding the maximum number of valid dance couples where each pair must have an exact height difference of 5 cm. | C++ | [View Code](./problems/couple-dancing-competition/solution.cpp) |
-| 4 | *Coming Soon...* | | | |
+| 4 | [The Parking Managemeny](./problems/the-parking-management) | A queue-based parking management system that handles car entry, parking, exit, and waiting queues principle. | C++ | [View Code](./problems/the-parking-management/solution.cpp) |
 | 5 | *Coming Soon...* | | | |
 | 6 | *Coming Soon...* | | | |
+| 7 | *Coming Soon...* | | | |
 
 ---
 *“Programming isn't about what you know; it's about what you can figure out.”*
