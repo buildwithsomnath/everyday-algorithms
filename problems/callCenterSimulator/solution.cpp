@@ -14,7 +14,7 @@ class callCenter{
             string callerName;
             cout<<"Enter caller name: ";
             cin.ignore();
-            getline(cin, callerName);
+            if (!getline(cin, callerName)) return;
 
             string call = "Call #"+to_string(callNumber++)+" - "+callerName;
 
@@ -45,7 +45,7 @@ class callCenter{
         }
 
         void run(){
-            int choice;
+            int choice = 0;
             do {
             cout << "\n=== Call Center ===\n";
             cout << "Calls in queue: " << callQueue.size() << "\n";
@@ -54,7 +54,7 @@ class callCenter{
             cout << "3. View Queue\n";
             cout << "4. Exit\n";
             cout << "Choice: ";
-            cin >> choice;
+            if (!(cin >> choice)) break;
             
             switch(choice) {
                 case 1: receiveCall(); break;
@@ -63,7 +63,7 @@ class callCenter{
                 case 4: cout << "Goodbye!\n"; break;
                 default: cout << "Invalid choice!\n";
             }
-        } while(choice != 4);
+        } while(choice != 4 && cin);
     }
 };
 

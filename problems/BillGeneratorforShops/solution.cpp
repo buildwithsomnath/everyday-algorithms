@@ -19,9 +19,8 @@ namespace {
 
 
         static void generateBill() {
-            int choice;
+            int choice = 0;
             vector<vector<string>> bills;
-            int productNumber = 0;
             do {
                 cout<<"==== Add Item===="<<endl;
                 cout<<"1. Add Item"<<endl;
@@ -29,23 +28,22 @@ namespace {
                 cout<<"3. Total Bill"<<endl;
                 cout<<"4. Exit"<<endl;
                 cout<<"Enter your choice: "<<endl;
-                cin>>choice;
+                if (!(cin >> choice)) break;
 
                 switch (choice) {
                     case 1: {
-                        bills.emplace_back();
                         string name;
                         cout<<"Enter name: "<<endl;
                         cin.ignore();
-                        getline(cin,name);
+                        if (!getline(cin, name)) break;
 
                         float itemPrice;
                         cout<<"Enter price: "<<endl;
-                        cin>>itemPrice;
+                        if (!(cin >> itemPrice)) break;
 
                         float quantity;
                         cout<<"Enter quantity: "<<endl;
-                        cin>>quantity;
+                        if (!(cin >> quantity)) break;
 
                         stringstream stream1, stream2;
                         stream1 << fixed << setprecision(2) << itemPrice;
@@ -54,27 +52,26 @@ namespace {
                         time_t now = time(nullptr);
                         char* time_string = ctime(&now);
 
-                        bills[productNumber].push_back(name);
-                        bills[productNumber].push_back(stream1.str());
-                        bills[productNumber].push_back(stream2.str());
-                        bills[productNumber].push_back(time_string);
+                        bills.push_back({name, stream1.str(), stream2.str(), time_string});
                         cout<<endl;
-                        for (int i = 0; i < bills.size(); i++) {
+                        for (size_t i = 0; i < bills.size(); i++) {
                             cout<<"#"<<i<<" "<<bills[i][0]<<" "<<bills[i][1]<<" "<<bills[i][2]<<" "<<bills[i][3];
                         }
-                        productNumber++;
                         break;
                     }
                     case 2: {
                         int pNumber;
                         cout<<"Enter the product number: "<<endl;
-                        cin>>pNumber;
-                        bills.erase(bills.begin()+pNumber);
+                        if (cin >> pNumber) {
+                            if (pNumber >= 0 && pNumber < static_cast<int>(bills.size())) {
+                                bills.erase(bills.begin() + pNumber);
+                            }
+                        }
                         break;
                     }
                     case 3: {
                         double total = 0;
-                        for (int i = 0; i < bills.size(); i++) {
+                        for (size_t i = 0; i < bills.size(); i++) {
                             cout<<"#"<<i<<" "<<bills[i][0]<<" "<<bills[i][1]<<" "<<bills[i][2]<<" "<<bills[i][3];
                             total += stod(bills[i][1])*stod(bills[i][2]);
                         }
@@ -84,17 +81,17 @@ namespace {
                     case 4: cout<<"Goodbye!"<<endl;return;
                     default: cout<<"Invalid choice\n"<<endl;
                 }
-            }while (choice!=3);
+            } while (choice != 4 && cin);
         }
 
         static void run() {
-            int choice;
+            int choice = 0;
             do {
                 cout<<"====Bill Generator===="<<endl;
                 cout<<"1. Create Bill Generator"<<endl;
                 cout<<"2. Exit Bill Generator"<<endl;
                 cout<<"Enter your choice: "<<endl;
-                cin>>choice;
+                if (!(cin >> choice)) break;
 
                 switch (choice) {
                     case 1: generateBill();break;
@@ -102,7 +99,7 @@ namespace {
                     default: cout<<"Invalid choice"<<endl;break;
                 }
 
-            }while (choice!=2);
+            } while (choice != 2 && cin);
         }
     };
 }

@@ -15,7 +15,7 @@ namespace {
         CarParkingManagement(): carWaiting(1), parkingSpace(1){}
         void addParkingSpace() {
             cout<<"Enter the parking space: "<<endl;
-            cin>>parkingSpace;
+            if (!(cin>>parkingSpace)) return;
         }
         void carExit() {
             if (carParked.empty()) {
@@ -63,7 +63,7 @@ namespace {
         }
         void run() {
             addParkingSpace();
-            int choice;
+            int choice = 0;
             do {
                 cout << "\n=== Parking Management ===\n";
                 cout << "Cars in queue: " << carinWait.size() << "\n";
@@ -72,7 +72,7 @@ namespace {
                 cout << "3. Car Waiting Queue\n";
                 cout << "4. Exit\n";
                 cout << "Choice: ";
-                cin >> choice;
+                if (!(cin >> choice)) break;
 
                 switch(choice) {
                     case 1: carEntry(); break;
@@ -81,7 +81,7 @@ namespace {
                     case 4: cout << "Goodbye!\n"; break;
                     default: cout << "Invalid choice!\n";
                 }
-            } while(choice != 4);
+            } while(choice != 4 && cin);
         }
 
     };
